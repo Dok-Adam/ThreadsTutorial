@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ExploreView: View {
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.red]
+    }
+    
     @State private var searchText = ""
     
     var body: some View {

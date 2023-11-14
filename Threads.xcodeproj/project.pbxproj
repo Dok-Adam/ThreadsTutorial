@@ -24,6 +24,7 @@
 		C62511732B0359BF00B80AD7 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62511722B0359BF00B80AD7 /* UserCell.swift */; };
 		C62511762B035D2F00B80AD7 /* ProfileFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62511752B035D2F00B80AD7 /* ProfileFilter.swift */; };
 		C625117A2B0361FB00B80AD7 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62511792B0361FB00B80AD7 /* EditProfileView.swift */; };
+		C625117D2B036A2B00B80AD7 /* CreateThreadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625117C2B036A2B00B80AD7 /* CreateThreadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C62511722B0359BF00B80AD7 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		C62511752B035D2F00B80AD7 /* ProfileFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilter.swift; sourceTree = "<group>"; };
 		C62511792B0361FB00B80AD7 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		C625117C2B036A2B00B80AD7 /* CreateThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThreadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		C62511622B034F9200B80AD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C625117C2B036A2B00B80AD7 /* CreateThreadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				C62511712B0356B800B80AD7 /* CircularProfileImageView.swift in Sources */,
 				C62511732B0359BF00B80AD7 /* UserCell.swift in Sources */,
 				C62511532B03450F00B80AD7 /* ThreadsTextFieldModifier.swift in Sources */,
+				C625117D2B036A2B00B80AD7 /* CreateThreadView.swift in Sources */,
 				C62511552B03465500B80AD7 /* ThreadsTabView.swift in Sources */,
 				C62511452B032B4500B80AD7 /* LoginView.swift in Sources */,
 				C62511762B035D2F00B80AD7 /* ProfileFilter.swift in Sources */,

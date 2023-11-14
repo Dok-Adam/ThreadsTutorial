@@ -25,7 +25,7 @@ struct ThreadsTabView: View {
                 }.onAppear{ selectedTab = 1 }
                 .tag(1)
             
-            Text("Create Thread")
+            Text("")
                 .tabItem {
                     Image(systemName: "plus")
                     
@@ -48,6 +48,11 @@ struct ThreadsTabView: View {
                 }.onAppear{ selectedTab = 4 }
                 .tag(4)
         }
+        .sheet(isPresented: .constant(selectedTab == 2), onDismiss: {
+         selectedTab = 0
+        }, content: {
+            CreateThreadView()
+        })
         .tint(.black)
     }
 }
