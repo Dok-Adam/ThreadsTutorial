@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var username = ""
-    @State private var fullname = ""
+    @StateObject var viewModel = RegistrationViewModel()
+   
     @Environment (\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
@@ -25,25 +23,25 @@ struct RegistrationView: View {
                     .frame(width: 100, height: 100)
                 
                 VStack {
-                    TextField("Enter your email...", text: $email)
+                    TextField("Enter your email...", text: $viewModel.email)
                         .autocapitalization(.none)
                         .modifier(ThreadsTextFieldModifier())
                     
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $viewModel.password)
                         .modifier(ThreadsTextFieldModifier())
                     
-                    TextField("Enter your username...", text: $username)
+                    TextField("Enter your username...", text: $viewModel.username)
                         .autocapitalization(.none)
                         .modifier(ThreadsTextFieldModifier())
                     
-                    TextField("Enter your fullname...", text: $fullname)
+                    TextField("Enter your fullname...", text: $viewModel.fullname)
                         .modifier(ThreadsTextFieldModifier())
                 }
                 
                 
                 
                 Button {
-                    print("sign Up")
+                    Task { try await viewModel.createUser() }
                 } label: {
                     Text("Sign Up")
                         .font(.subheadline)

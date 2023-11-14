@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C620143D2B038BC600FF2A91 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C620143C2B038BC600FF2A91 /* LoginViewModel.swift */; };
 		C625112E2B0329AF00B80AD7 /* ThreadsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625112D2B0329AF00B80AD7 /* ThreadsApp.swift */; };
 		C62511302B0329AF00B80AD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625112F2B0329AF00B80AD7 /* ContentView.swift */; };
 		C62511322B0329B000B80AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62511312B0329B000B80AD7 /* Assets.xcassets */; };
@@ -30,9 +31,14 @@
 		C62511842B03742200B80AD7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C62511832B03742200B80AD7 /* FirebaseFirestore */; };
 		C62511862B03742200B80AD7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C62511852B03742200B80AD7 /* FirebaseFirestoreSwift */; };
 		C625118A2B03742200B80AD7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C62511892B03742200B80AD7 /* FirebaseStorage */; };
+		C625118E2B037B6500B80AD7 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625118D2B037B6500B80AD7 /* RegistrationViewModel.swift */; };
+		C62511902B037C4400B80AD7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C625118F2B037C4400B80AD7 /* AuthService.swift */; };
+		C62511942B03814300B80AD7 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62511932B03814300B80AD7 /* ContentViewModel.swift */; };
+		C62511962B0384BC00B80AD7 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62511952B0384BC00B80AD7 /* CurrentUserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C620143C2B038BC600FF2A91 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C625112A2B0329AF00B80AD7 /* Threads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Threads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C625112D2B0329AF00B80AD7 /* ThreadsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsApp.swift; sourceTree = "<group>"; };
 		C625112F2B0329AF00B80AD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		C62511792B0361FB00B80AD7 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		C625117C2B036A2B00B80AD7 /* CreateThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThreadView.swift; sourceTree = "<group>"; };
 		C625117E2B0370F700B80AD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C625118D2B037B6500B80AD7 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		C625118F2B037C4400B80AD7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C62511932B03814300B80AD7 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		C62511952B0384BC00B80AD7 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +176,9 @@
 		C62511412B032B0B00B80AD7 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				C625118C2B037B4A00B80AD7 /* Service */,
 				C62511432B032B2900B80AD7 /* Views */,
+				C625118B2B037B4400B80AD7 /* ViewModel */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -174,7 +186,8 @@
 		C62511422B032B1800B80AD7 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				C625112F2B0329AF00B80AD7 /* ContentView.swift */,
+				C62511922B03811600B80AD7 /* View */,
+				C62511912B03811200B80AD7 /* ViewModel */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -283,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				C625116B2B03505400B80AD7 /* ProfileView.swift */,
+				C62511952B0384BC00B80AD7 /* CurrentUserProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +330,39 @@
 			isa = PBXGroup;
 			children = (
 				C62511792B0361FB00B80AD7 /* EditProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C625118B2B037B4400B80AD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C620143C2B038BC600FF2A91 /* LoginViewModel.swift */,
+				C625118D2B037B6500B80AD7 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C625118C2B037B4A00B80AD7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C625118F2B037C4400B80AD7 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C62511912B03811200B80AD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C62511932B03814300B80AD7 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C62511922B03811600B80AD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C625112F2B0329AF00B80AD7 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,7 +448,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62511592B03491800B80AD7 /* FeedView.swift in Sources */,
+				C625118E2B037B6500B80AD7 /* RegistrationViewModel.swift in Sources */,
 				C62511602B034F4800B80AD7 /* ExploreView.swift in Sources */,
+				C62511902B037C4400B80AD7 /* AuthService.swift in Sources */,
 				C625117A2B0361FB00B80AD7 /* EditProfileView.swift in Sources */,
 				C625116E2B03517900B80AD7 /* ThreadCell.swift in Sources */,
 				C62511682B03500200B80AD7 /* ActivityView.swift in Sources */,
@@ -410,12 +459,15 @@
 				C62511532B03450F00B80AD7 /* ThreadsTextFieldModifier.swift in Sources */,
 				C625117D2B036A2B00B80AD7 /* CreateThreadView.swift in Sources */,
 				C62511552B03465500B80AD7 /* ThreadsTabView.swift in Sources */,
+				C62511942B03814300B80AD7 /* ContentViewModel.swift in Sources */,
 				C62511452B032B4500B80AD7 /* LoginView.swift in Sources */,
 				C62511762B035D2F00B80AD7 /* ProfileFilter.swift in Sources */,
 				C62511302B0329AF00B80AD7 /* ContentView.swift in Sources */,
 				C625112E2B0329AF00B80AD7 /* ThreadsApp.swift in Sources */,
+				C62511962B0384BC00B80AD7 /* CurrentUserProfileView.swift in Sources */,
 				C625116C2B03505400B80AD7 /* ProfileView.swift in Sources */,
 				C62511492B032E6F00B80AD7 /* RegistrationView.swift in Sources */,
+				C620143D2B038BC600FF2A91 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,8 +607,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,9 +616,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threads.ThreadsTutor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -584,8 +639,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,9 +648,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threads.ThreadsTutor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
