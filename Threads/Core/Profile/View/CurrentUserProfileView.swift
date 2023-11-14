@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
-    
+    @StateObject var viewModel = ProfileViewModel()
     @State private var selectedFilter: ProfileFilter = .threads
     @Namespace var animation
     private var dimension = UIScreen.main.bounds.width
