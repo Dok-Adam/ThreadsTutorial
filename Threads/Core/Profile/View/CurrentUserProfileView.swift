@@ -13,6 +13,10 @@ struct CurrentUserProfileView: View {
     @Namespace var animation
     private var dimension = UIScreen.main.bounds.width
     
+    private var currentUser: User? {
+        return viewModel.currentUser
+    }
+    
     var body: some View {
         
         NavigationStack {
@@ -24,16 +28,18 @@ struct CurrentUserProfileView: View {
                         VStack(alignment: .leading, spacing: 12) {
                             VStack(alignment: .leading, spacing: 4) {
                                 
-                                Text("Chon Chongon")
+                                Text(currentUser?.fullname ?? "")
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text("chonchon")
+                                Text(currentUser?.username ?? "")
                                     .font(.subheadline)
                             }
                             
-                            Text("I'm trainer of crossfit. Call me")
-                                .font(.footnote)
+                            if let bio = currentUser?.bio {
+                                Text(bio)
+                                    .font(.footnote)
+                            }
                             
                             Text("2 followers")
                                 .font(.caption)

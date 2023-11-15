@@ -12,6 +12,7 @@ class ProfileViewModel: ObservableObject {
     
     @Published var currentUser: User?
     private var cancellables = Set<AnyCancellable>()
+    
     init() {
         setupSubscribers()
     }
@@ -19,7 +20,7 @@ class ProfileViewModel: ObservableObject {
     private func setupSubscribers() {
         UserService.shared.$currentUser.sink { [weak self] user in
             self?.currentUser = user
-            print("\(user)")
+            print("DEBUG: \(String(describing: user))")
         }.store(in: &cancellables)
     }
 }
