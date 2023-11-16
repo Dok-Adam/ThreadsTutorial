@@ -42,11 +42,11 @@ struct UserContentListView: View {
                 }
             }
             
-            LazyVStack {
-                ForEach(0 ... 10, id: \.self) { thread in
-                    ThreadCell()
-                }
-            }
+//            LazyVStack {
+//                ForEach(0 ... 10, id: \.self) { thread in
+//                    ThreadCell(thread: )
+//                }
+//            }
         }
         .padding(.vertical, 8)
 
