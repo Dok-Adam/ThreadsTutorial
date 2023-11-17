@@ -58,6 +58,7 @@
 		C6C4E17E2B062040000C3AF4 /* ThreadDetaisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4E17D2B062040000C3AF4 /* ThreadDetaisView.swift */; };
 		C6C4E1802B062339000C3AF4 /* ThreadDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4E17F2B062339000C3AF4 /* ThreadDetailsViewModel.swift */; };
 		C6C4E1822B062543000C3AF4 /* ThreadReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4E1812B062543000C3AF4 /* ThreadReplyCell.swift */; };
+		C6C4E1862B071A01000C3AF4 /* ThreadReplyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C4E1852B071A01000C3AF4 /* ThreadReplyProfileCell.swift */; };
 		C6F40A812B04EE4900AC9F55 /* ThreadCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F40A802B04EE4900AC9F55 /* ThreadCreationView.swift */; };
 		C6F40A842B05154400AC9F55 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F40A832B05154400AC9F55 /* FeedViewModel.swift */; };
 		C6F40A8A2B05204F00AC9F55 /* UserContentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F40A892B05204F00AC9F55 /* UserContentListViewModel.swift */; };
@@ -112,6 +113,7 @@
 		C6C4E17D2B062040000C3AF4 /* ThreadDetaisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDetaisView.swift; sourceTree = "<group>"; };
 		C6C4E17F2B062339000C3AF4 /* ThreadDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDetailsViewModel.swift; sourceTree = "<group>"; };
 		C6C4E1812B062543000C3AF4 /* ThreadReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadReplyCell.swift; sourceTree = "<group>"; };
+		C6C4E1852B071A01000C3AF4 /* ThreadReplyProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadReplyProfileCell.swift; sourceTree = "<group>"; };
 		C6F40A802B04EE4900AC9F55 /* ThreadCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCreationView.swift; sourceTree = "<group>"; };
 		C6F40A832B05154400AC9F55 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		C6F40A892B05204F00AC9F55 /* UserContentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentListViewModel.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 			children = (
 				C62014502B048C8A00FF2A91 /* ProfileHeaderView.swift */,
 				C62014522B048EFD00FF2A91 /* UserContentListView.swift */,
+				C6C4E1852B071A01000C3AF4 /* ThreadReplyProfileCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				C620145D2B04B3C300FF2A91 /* Thread.swift in Sources */,
 				C625118E2B037B6500B80AD7 /* RegistrationViewModel.swift in Sources */,
 				C6C4E16F2B05FAF7000C3AF4 /* ThreadReplyView.swift in Sources */,
+				C6C4E1862B071A01000C3AF4 /* ThreadReplyProfileCell.swift in Sources */,
 				C6C4E1822B062543000C3AF4 /* ThreadReplyCell.swift in Sources */,
 				C6C4E1662B05D3C2000C3AF4 /* ContentActionViewModel.swift in Sources */,
 				C62511602B034F4800B80AD7 /* ExploreView.swift in Sources */,

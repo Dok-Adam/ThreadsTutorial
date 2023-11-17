@@ -56,7 +56,7 @@ struct ThreadReplyView: View {
                     }
                     
                     HStack(alignment: .top) {
-                        CircularProfileImageView(user: thread.user, size: .small)
+                        CircularProfileImageView(user: currentUser, size: .small)
                         VStack(alignment: .leading, spacing: 4) {
                             Text(currentUser?.username ?? "")
                             

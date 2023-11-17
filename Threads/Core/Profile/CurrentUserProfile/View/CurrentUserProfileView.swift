@@ -55,7 +55,7 @@ struct CurrentUserProfileView: View {
             })
             
             .refreshable {
-                print("Refresh")
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -68,4 +68,26 @@ extension ThreadService {
         
         return snapshot.exists
     }
+    
+    static func fetchThreadReplies(forUser user: User) async throws -> [ThreadReply] {
+        let snapshot = try await FirebaseConstants
+            .RepliesCollection
+            .whereField("threadReplyOwnerUid", isEqualTo: user.id)
+            .getDocuments()
+        
+        var replies = snapshot.documents.compactMap({ try? $0.data(as: ThreadReply.self) })
+        for i in 0 ..< replies.count {
+            replies[i].replyUser = user
+        }
+        return replies
+    }
+    
+    static func fetchThread(threadId: String) async throws -> Thread {
+        let snapshot = try await FirebaseConstants
+            .ThreadsCollection
+            .document(threadId)
+            .getDocument()
+        
+        return try snapshot.data(as: Thread.self)
+    }
 }
