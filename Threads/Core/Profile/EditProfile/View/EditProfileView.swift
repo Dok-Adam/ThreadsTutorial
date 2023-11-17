@@ -6,20 +6,16 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileView: View {
-    // Large Navigation Title
-    // UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.purple]
-    // Inline Navigation Title
-    
-    init() {
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.orange]
-    }
     
     @State private var bio = ""
     @State private var link = ""
     @State private var isPrivateProfile = false
-    
+    @Environment (\.dismiss) var dismiss
+    @StateObject var viewModel = EditProfileViewModel()
+    let user: User
     var body: some View {
         
         NavigationStack {
@@ -33,12 +29,22 @@ struct EditProfileView: View {
                             Text("Name")
                                 .font(.footnote)
                                 .fontWeight(.semibold)
-                            Text("Chon Chongon")
+                            Text(user.fullname)
                                 .font(.footnote)
                         }
                         Spacer()
                         
-                        CircularProfileImageView()
+                        PhotosPicker(selection: $viewModel.selectedItem) {
+                            if let image = viewModel.profileImage {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            } else {
+                                CircularProfileImageView(user: user, size: .small)
+                            }
+                        }
                     }
                     
                     Divider()
@@ -59,7 +65,7 @@ struct EditProfileView: View {
                             .font(.footnote)
                             .fontWeight(.semibold)
                         
-                        TextField("Add link...", text: $bio)
+                        TextField("Add link...", text: $link)
                             .font(.footnote)
                     }
                     
@@ -81,16 +87,25 @@ struct EditProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Cancel")
-                        .font(.subheadline)
-                        .foregroundColor(.black)
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                            .font(.subheadline)
+                            .foregroundColor(.black)
+                    }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Text("Done")
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                    Button {
+                        Task { try await viewModel.updateUserData() }
+                        dismiss()
+                    } label: {
+                        Text("Done")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                    }
                 }
             }
         }
@@ -98,5 +113,5 @@ struct EditProfileView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: DeveloperPreview.shared.user)
 }

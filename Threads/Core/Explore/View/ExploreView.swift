@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExploreView: View {
+    
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.red]
     }

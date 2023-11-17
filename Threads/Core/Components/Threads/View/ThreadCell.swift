@@ -40,9 +40,8 @@ struct ThreadCell: View {
                     Text(thread.caption)
                         .font(.footnote)
                     
-                    ContentActionButtonView()
+                    ContentActionButtonView(thread: thread)
                         .foregroundColor(.black)
-                        .padding(.vertical, 8)
                 }
             }
             

@@ -10,6 +10,7 @@ import SwiftUI
 struct CurrentUserProfileView: View {
     @StateObject var viewModel = CurrentUserProfileViewModel()
     private var dimension = UIScreen.main.bounds.width
+    @State private var showEditProfile = false
     
     private var currentUser: User? {
         return viewModel.currentUser
@@ -25,14 +26,14 @@ struct CurrentUserProfileView: View {
                    ProfileHeaderView(user: currentUser)
                     
                     Button {
-                        
+                        showEditProfile.toggle()
                     } label: {
                         
                         Text("Edit Profile")
                             .font(.footnote)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
-                            .frame(width: dimension - 20, height: 32)
+                            .frame(width: dimension - 32, height: 32)
                             .background(.white)
                             .cornerRadius(8)
                             .overlay {
@@ -41,8 +42,20 @@ struct CurrentUserProfileView: View {
                             }
                     }
                     
-                   UserContentListView()
+                    if let user = currentUser {
+                        UserContentListView(user: user)
+                    }
                 }
+            }
+            .sheet(isPresented: $showEditProfile, content: {
+                if let user = currentUser {
+                    EditProfileView(user: user)
+                }
+            
+            })
+            
+            .refreshable {
+                print("Refresh")
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
