@@ -43,5 +43,4 @@ class UserContentListViewModel: ObservableObject {
             replies[i].thread = thread
         }
     }
-    
 }

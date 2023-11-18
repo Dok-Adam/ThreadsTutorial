@@ -46,24 +46,31 @@ struct UserContentListView: View {
                 }
             }
             
-            LazyVStack {
-                switch selectedFilter {
-                case .threads:
-                    
-                    ForEach(viewModel.threads) { thread in
-                        ThreadCell(thread: thread)
-                            .transition(.move(edge: .leading))
-                    }
-                    
-                case .replies:
-                    ForEach(viewModel.replies) { reply in
-                        ThreadReplyProfileCell(reply: reply)
-                            .transition(.move(edge: .trailing))
+            ScrollView {
+                LazyVStack {
+                    switch selectedFilter {
+                    case .threads:
+                        
+                        ForEach(viewModel.threads) { thread in
+                            ThreadCell(thread: thread)
+                                .transition(.move(edge: .leading))
+                        }
+                        
+                    case .replies:
+                        ForEach(viewModel.replies) { reply in
+                            ThreadReplyProfileCell(reply: reply)
+                                .transition(.move(edge: .trailing))
+                        }
                     }
                 }
             }
+            .refreshable {
+                Task { try await viewModel.fetchUserThreads() }
+                Task { try await viewModel.fetchUserReplies() }
+            }
         }
         .padding(.vertical, 8)
+        
 
     }
 }

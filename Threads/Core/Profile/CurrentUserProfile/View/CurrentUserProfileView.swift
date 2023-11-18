@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CurrentUserProfileView: View {
     @StateObject var viewModel = CurrentUserProfileViewModel()
+    
     private var dimension = UIScreen.main.bounds.width
     @State private var showEditProfile = false
     
@@ -20,41 +21,33 @@ struct CurrentUserProfileView: View {
         
         NavigationStack {
             
-            ScrollView(showsIndicators: false) {
+            VStack(spacing: 20) {
+                ProfileHeaderView(user: currentUser)
                 
-                VStack(spacing: 20) {
-                   ProfileHeaderView(user: currentUser)
+                Button {
+                    showEditProfile.toggle()
+                } label: {
                     
-                    Button {
-                        showEditProfile.toggle()
-                    } label: {
-                        
-                        Text("Edit Profile")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .frame(width: dimension - 32, height: 32)
-                            .background(.white)
-                            .cornerRadius(8)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color(.systemGray4), lineWidth: 1)
-                            }
-                    }
-                    
-                    if let user = currentUser {
-                        UserContentListView(user: user)
+                    Text("Edit Profile")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
+                        .frame(width: dimension - 32, height: 32)
+                        .background(.white)
+                        .cornerRadius(8)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(.systemGray4), lineWidth: 1)
                     }
                 }
-            }
-            .sheet(isPresented: $showEditProfile, content: {
+                
+                if let user = currentUser {
+                    UserContentListView(user: user)
+                }
+            }.sheet(isPresented: $showEditProfile) {
                 if let user = currentUser {
                     EditProfileView(user: user)
                 }
-            
-            })
-            
-            .refreshable {
                 
             }
             .toolbar {
@@ -67,7 +60,9 @@ struct CurrentUserProfileView: View {
                     }
                 }
             }
+            
         }
+        
     }
 }
 
